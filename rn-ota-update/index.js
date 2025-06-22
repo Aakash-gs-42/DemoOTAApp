@@ -1,7 +1,7 @@
 import React from 'react';
 import { AppState, NativeModules, DevSettings } from 'react-native';
 
-const { OTABundleManager } = NativeModules;
+const { OTABundleManager, BundleReloader } = NativeModules;
 
 
 function checkForUpdate() {
@@ -10,6 +10,8 @@ function checkForUpdate() {
         console.log('[DEBUG]checkForUpdate: isBundleUpdated', isBundleUpdated);
         if (isBundleUpdated) {
             DevSettings.reload();
+            // BundleReloader.reloadBridge();
+
         }
     });
 }
